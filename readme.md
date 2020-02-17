@@ -12,6 +12,8 @@
 - [Introdução](#intro)
 - [Variáveis](#variaveis)
 - [Funções](#funcoes)
+- [Classes](#classes)
+- [Conceituais](#conceituais)
 
 <a name="intro"/>
 
@@ -67,13 +69,13 @@ Agora, seguem as dicas:
 
 - Apesar de uma dica básica, é comum ver perdido pelo código variáveis indecifráveis. Nomes de variáveis devem ser claros e objetivos, evitando que seu código seja mal interpretado:
 
-#### Ruim
+##### Ruim
 
 ```php
 $dtPuLi = $licitacao['dt_publicacao'];
 ```
 
-#### Bom
+##### Bom
 
 ```php
 $dataPublicacao = $licitacao['dt_publicacao'];
@@ -83,14 +85,14 @@ $dtPublicacaoLicitacao = $licitacao['dt_publicacao'];
 
 - Caso o contexto de acesso às informações seja o mesmo, como por exemplo, um get em licitações futuras ou realizadas, use o mesmo vocabulário para esse mesmo tipo. Abaixo, os métodos são claros em relação a quais status de licitacoes serão retornadas, o que torna a explicação da chamada inutil.
 
-#### Ruim
+##### Ruim
 
 ```php
 $licitacoes = $pageObject->porStatus(Status::FUTURAS)->getLicitacoesFuturas();
 $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->getLicitacoesRealizadas();
 ```
 
-#### Bom
+##### Bom
 
 ```php
 $licitacoes = $pageObject->porStatus(Status::FUTURAS)->get();
@@ -99,7 +101,7 @@ $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->get();
 
 - Abstraia valores "mágicos" para um contexto explicativo:
 
-#### Ruim
+##### Ruim
 
 ```php
 $pageObject->porStatus(1)->get();
@@ -107,7 +109,7 @@ $pageObject->porStatus(1)->get();
 if ($licitacao->modalidade() == 3);
 ```
 
-#### Bom
+##### Bom
 
 ```php
 $pageObject->porStatus(Status::EM_ANDAMENTO)->get();
@@ -117,7 +119,7 @@ if ($licitacao->modalidade() == Modalidade::PREGAO_ELETRONICO);
 
 - Caso a captura de informações sejam feitas através de regexes, o que é comum em alguns portais, padrões explicativos podem ser utilizados:
 
-#### Ruim
+##### Ruim
 
 ```php
 class ConsultaLicitacaoParser
@@ -133,7 +135,7 @@ class ConsultaLicitacaoParser
 ...
 ```
 
-#### Bom
+##### Bom
 
 ```php
 class ConsultaLicitacaoParser
@@ -150,7 +152,8 @@ class ConsultaLicitacaoParser
 ```
 - Não force quem lê o código a traduzir o que está sendo feito:
 
-#### Ruim
+##### Ruim
+
 ```php
 $l = $parser->licitacoes();
 
@@ -160,7 +163,8 @@ for ($i = 0; $i < count($l); $i++) {
 }
 ```
 
-#### Bom
+##### Bom
+
 ```php
 $licitacoes = $parser->licitacoes();
 
@@ -169,7 +173,8 @@ foreack ($licitacoes as $licitacao) {
 }
 ```
 
-#### Ruim
+##### Ruim
+
 ```php
 class PortalQualquerLicitacaoIterator extends AbstractIterator
 {
@@ -191,7 +196,8 @@ class PortalQualquerLicitacaoIterator extends AbstractIterator
 }
 ```
 
-#### Bom
+##### Bom
+
 ```php
 class PortalQualquerLicitacaoIterator extends AbstractIterator
 {
@@ -215,7 +221,8 @@ class PortalQualquerLicitacaoIterator extends AbstractIterator
 
 - Evite aninhamentos grandes e pratique o "early return"
 
-#### Ruim
+##### Ruim
+
 ```php
 if ($status) {
     if ($status === 'em_andamento') {
@@ -232,7 +239,8 @@ if ($status) {
 }
 ```
 
-#### Bom
+##### Bom
+
 ```php
 if (empty($status)) {
     return false; //early return    
@@ -249,7 +257,8 @@ return in_array($status, $statusValidos, true);
 
 - Evite o uso de flags como paramêtro de funções
 
-#### Ruim
+##### Ruim
+
 ```php
 public function salvaArquivo($nome, $temp = false) 
 {
@@ -261,7 +270,8 @@ public function salvaArquivo($nome, $temp = false)
 }
 ```
  
-#### Bom
+##### Bom
+
 ```php
 public function salvaArquivo($nome) 
 {
@@ -275,16 +285,151 @@ public function salvaArquivoTemporario($nome)
 ``` 
 - Encapsule condicionais e não revele suas regras de negócio
 
-#### Ruim
+##### Ruim
+
 ```php
 if ($parser->qtdDeLicitacoes() === 0) {
     // ... 
 }
 ```
  
-#### Bom
+##### Bom
+
 ```php
 if ($parser->temLicitacoes()) {
     // ...
 }
 ```
+
+- Evite condicionais negativas:
+
+##### Ruim
+
+```php
+function naoTemProximaPagina() : bool {}
+
+if (!$parser->naoTemProximaPagina()) { //aqui a confusão se da por negar uma condicional negativa para saber qual é o resultado verdadeiro... confuso
+    //...
+}
+```
+
+##### Bom
+
+```php
+function temProximaPagina() : bool {} // dessas formas, a chamada da função acompanha um raciocínio logico, e não cria a confusao da forma acima 
+
+if ($parser->temProximaPagina())  { 
+    // ...
+}
+
+if (!$parser->temProximaPagina()) { 
+    //...
+}
+```
+
+- Remova códigos antigos:
+
+##### Ruim
+
+```php
+$parser->getDescricaoAntiga();
+
+$parser->getDescricaoNova();
+```
+
+##### Bom
+
+```php
+$parser->getDescricao();
+```
+
+<a name="classes"/>
+
+### Classes
+
+Seguindo o que reza a cartilha do [S.O.L.I.D.](https://pt.wikipedia.org/wiki/SOLID), cabe a cada classe ser responsável por suas devidas capturas, sem uma classe que faz tudo de uma só vez:
+
+##### Ruim
+
+```php
+class LicitacaoPageObject extends AbstractPageObject
+{
+    public function get()
+    {
+        $resp = $this->request('metodo request', 'url do portal');
+        
+        return new LicitacaoParser($resp->getBody()->getContents());
+    }
+
+    public function getDetalhes()
+    {
+        $resp = $this->request('metodo request', 'url do portal p/ pegar detalhes');
+
+        return new LicitacaoDetalhesParser($resp->getBody()->getContents());
+    }
+}
+```
+
+##### Bom
+
+```php
+class LicitacaoPageObject extends AbstractPageObject
+{
+    public function get()
+    {
+        $resp = $this->request('metodo', 'url do portal');
+
+        return new LicitacaoParser($resp->getBody()->getContents());
+    }
+}
+
+// e
+
+class LicitacaoDetalhesPageObject extends AbstractPageObject
+{
+    public function get()
+    {
+        $resp = $this->request('metodo request', 'url do portal p/ pegar detalhes');
+
+        return new LicitacaoDetalhesParser($resp->getBody()->getContents());
+    }
+}
+```
+
+- Dependa de abstrações para que seus page-objects funcionem e não crie alto acoplamento:
+
+##### Ruim
+
+```php
+class PageObject
+{
+    private $client;
+
+    public function __construct() { 
+        $this->client = MinhaCriacaoDoGuzzle::getInstance();
+    }
+}
+```
+ 
+##### Bom
+
+```php
+class PageObject
+{
+    private $client;
+    
+    public function __construct(\GuzzleHttp\ClientInterface $client) { 
+        $this->client = $client;
+    }
+}
+``` 
+
+<a name="conceituais"/>
+
+### Conceituais
+
+- Cada classe deve ter sua devida função;
+- Caso adote um padrão no estilo do código, mantenha-o em todo o desenvolvimento;
+- Desenvolva seus crawlers pensando que um terceiro irá corrigí-lo/evoluí-lo;
+- Siga a regra do escoteiro: caso encontre algum projeto que possa ser melhorado, então assim o faça.
+- Por fim, faça testes! 
