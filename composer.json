@@ -9,6 +9,7 @@
     ],
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "guzzlehttp/guzzle": "^6.5",
         "symfony/dom-crawler": "^5.0"
     },

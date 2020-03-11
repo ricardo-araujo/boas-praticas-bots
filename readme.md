@@ -1,6 +1,6 @@
 # Desenvolvendo crawlers de forma limpa
 
-> Esse projeto tem como objetivo mostrar algumas melhorias observadas ao longo do tempo e que fazem de um projeto de bot mais fácil de entender/corrigir/evoluir.
+Esse projeto tem como objetivo mostrar algumas melhorias observadas ao longo do tempo e que fazem de um projeto de bot mais fácil de entender/corrigir/evoluir.
 
 <a name="tabela-de-conteudo"/>
 
@@ -33,7 +33,7 @@ php composer.phar install
 
 #### Dockerfile
 
-Caso tenha o Docker instalado em sua maquina, execute o comando abaixo na raiz do projeto:
+Caso tenha o Docker instalado em sua máquina, execute o comando abaixo na raiz do projeto:
 
 ```bash
 docker build -t boas-praticas-bots . 
@@ -67,49 +67,53 @@ Agora, seguem as dicas:
 
 ### Variaveis
 
-- Apesar de uma dica básica, é comum ver perdido pelo código variáveis indecifráveis. Nomes de variáveis devem ser claros e objetivos, evitando que seu código seja mal interpretado:
+> Apesar de uma dica básica, é comum ver perdido pelo código variáveis indecifráveis. Nomes de variáveis devem ser claros e objetivos, evitando que seu código seja mal interpretado:
 
-##### Ruim
+- Ruim
 
 ```php
-$dtPuLi = $licitacao['dt_publicacao'];
+$dt = $licitacao['dt_pub_lic'];
 ```
 
-##### Bom
+- Bom
 
 ```php
-$dataPublicacao = $licitacao['dt_publicacao'];
-//ou
 $dtPublicacaoLicitacao = $licitacao['dt_publicacao'];
+
+//ou
+
+$dataPublicacao = $licitacao['dt_publicacao'];
 ```
 
-- Caso o contexto de acesso às informações seja o mesmo, como por exemplo, um get em licitações futuras ou realizadas, use o mesmo vocabulário para esse mesmo tipo. Abaixo, os métodos são claros em relação a quais status de licitacoes serão retornadas, o que torna a explicação da chamada inutil.
+> Caso o contexto de acesso às informações seja o mesmo, como por exemplo, um get em licitações futuras ou realizadas, use o mesmo vocabulário para esse mesmo tipo. Abaixo, os métodos são claros em relação a quais status de licitacoes serão retornadas, o que torna a explicação da chamada inutil.
 
-##### Ruim
+- Ruim
 
 ```php
 $licitacoes = $pageObject->porStatus(Status::FUTURAS)->getLicitacoesFuturas();
 $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->getLicitacoesRealizadas();
 ```
 
-##### Bom
+- Bom
 
 ```php
 $licitacoes = $pageObject->porStatus(Status::FUTURAS)->get();
 $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->get();
 ```
 
-- Abstraia valores "mágicos" para um contexto explicativo:
+> Abstraia valores "mágicos" para um contexto explicativo:
 
-##### Ruim
+- Ruim
 
 ```php
 $pageObject->porStatus(1)->get();
+
 // ou
+
 if ($licitacao->modalidade() == 3);
 ```
 
-##### Bom
+- Bom
 
 ```php
 $pageObject->porStatus(Status::EM_ANDAMENTO)->get();
@@ -117,9 +121,9 @@ $pageObject->porStatus(Status::EM_ANDAMENTO)->get();
 if ($licitacao->modalidade() == Modalidade::PREGAO_ELETRONICO);
 ```
 
-- Caso a captura de informações sejam feitas através de regexes, o que é comum em alguns portais, padrões explicativos podem ser utilizados:
+> Caso a captura de informações sejam feitas através de regexes, o que é comum em alguns portais, padrões explicativos podem ser utilizados:
 
-##### Ruim
+- Ruim
 
 ```php
 class ConsultaLicitacaoParser
@@ -135,7 +139,7 @@ class ConsultaLicitacaoParser
 ...
 ```
 
-##### Bom
+- Bom
 
 ```php
 class ConsultaLicitacaoParser
@@ -150,9 +154,10 @@ class ConsultaLicitacaoParser
     }
 ...
 ```
-- Não force quem lê o código a traduzir o que está sendo feito:
 
-##### Ruim
+> Não force quem lê o código a traduzir o que está sendo feito:
+
+- Ruim
 
 ```php
 $l = $parser->licitacoes();
@@ -163,7 +168,7 @@ for ($i = 0; $i < count($l); $i++) {
 }
 ```
 
-##### Bom
+- Bom
 
 ```php
 $licitacoes = $parser->licitacoes();
@@ -173,55 +178,55 @@ foreack ($licitacoes as $licitacao) {
 }
 ```
 
-##### Ruim
+- Ruim
 
 ```php
 class PortalQualquerLicitacaoIterator extends AbstractIterator
 {
     public function current()
     {
-        $element = $this->offsetGet($this->key()); 
+        $element = $this->iterator->current(); 
 
         return [
-            'nCdProcesso' => $element['nCdProcesso'],               // a principio, traduzir valores como os das chaves 
+            'nCdProcesso'        => $element['nCdProcesso'],        // a principio, traduzir valores como os das chaves 
             'sNrProcessoDisplay' => $element['sNrProcessoDisplay'], // pode ser um pouco complicado p/ quem não conhece
-            'sNrEdital' => $element['sNrEdital'],                   // o portal em questao
-            'sDsObjeto' => $element['sDsObjeto'],
-            'sNmEmpresa' => $element['sNmEmpresa'],
-            'sNmApelido' => $element['sNmApelido'],
-            'sDsSituacao' => $element['sDsSituacao'],
-            'sNmModalidade' => $element['sNmModalidade'],
+            'sNrEdital'          => $element['sNrEdital'],          // o portal em questao
+            'sDsObjeto'          => $element['sDsObjeto'],
+            'sNmEmpresa'         => $element['sNmEmpresa'],
+            'sNmApelido'         => $element['sNmApelido'],
+            'sDsSituacao'        => $element['sDsSituacao'],
+            'sNmModalidade'      => $element['sNmModalidade'],
         ];
     }
 }
 ```
 
-##### Bom
+- Bom
 
 ```php
 class PortalQualquerLicitacaoIterator extends AbstractIterator
 {
     public function current()
     {
-        $element = $this->offsetGet($this->key());
+        $element = $this->iterator->current();
 
         return [
             'codigo_oportunidade' => $element['nCdProcesso'],
-            'numero_processo' => $element['sNrProcessoDisplay'],
-            'numero_edital' => $element['sNrEdital'],
-            'objeto' => $element['sDsObjeto'],
-            'nome_orgao' => $element['sNmEmpresa'],
-            'razao_social_orgao' => $element['sNmApelido'],
-            'status' => $element['sDsSituacao'],
-            'modalidade' => $element['sNmModalidade'],
+            'numero_processo'     => $element['sNrProcessoDisplay'],
+            'numero_edital'       => $element['sNrEdital'],
+            'objeto'              => $element['sDsObjeto'],
+            'nome_orgao'          => $element['sNmEmpresa'],
+            'razao_social_orgao'  => $element['sNmApelido'],
+            'status'              => $element['sDsSituacao'],
+            'modalidade'          => $element['sNmModalidade'],
         ];
     }
 }
 ```
 
-- Evite aninhamentos grandes e pratique o "early return"
+> Evite aninhamentos grandes e pratique o "early return"
 
-##### Ruim
+- Ruim
 
 ```php
 if ($status) {
@@ -239,7 +244,7 @@ if ($status) {
 }
 ```
 
-##### Bom
+- Bom
 
 ```php
 if (empty($status)) {
@@ -255,9 +260,9 @@ return in_array($status, $statusValidos, true);
 
 ### Funções
 
-- Evite o uso de flags como paramêtro de funções
+> Evite o uso de flags como paramêtro de funções
 
-##### Ruim
+- Ruim
 
 ```php
 public function salvaArquivo($nome, $temp = false) 
@@ -270,7 +275,7 @@ public function salvaArquivo($nome, $temp = false)
 }
 ```
  
-##### Bom
+- Bom
 
 ```php
 public function salvaArquivo($nome) 
@@ -283,9 +288,10 @@ public function salvaArquivoTemporario($nome)
     file_put_contents('/tmp/' . $nome, 'conteudo');
 }
 ``` 
-- Encapsule condicionais e não revele suas regras de negócio
 
-##### Ruim
+> Encapsule condicionais e não revele suas regras de negócio
+
+- Ruim
 
 ```php
 if ($parser->qtdDeLicitacoes() === 0) {
@@ -293,7 +299,7 @@ if ($parser->qtdDeLicitacoes() === 0) {
 }
 ```
  
-##### Bom
+- Bom
 
 ```php
 if ($parser->temLicitacoes()) {
@@ -301,9 +307,9 @@ if ($parser->temLicitacoes()) {
 }
 ```
 
-- Evite condicionais negativas:
+> Evite condicionais negativas:
 
-##### Ruim
+- Ruim
 
 ```php
 function naoTemProximaPagina() : bool {}
@@ -313,7 +319,7 @@ if (!$parser->naoTemProximaPagina()) { //aqui a confusão se da por negar uma co
 }
 ```
 
-##### Bom
+- Bom
 
 ```php
 function temProximaPagina() : bool {} // dessas formas, a chamada da função acompanha um raciocínio logico, e não cria a confusao da forma acima 
@@ -327,9 +333,9 @@ if (!$parser->temProximaPagina()) {
 }
 ```
 
-- Remova códigos antigos:
+> Remova códigos antigos:
 
-##### Ruim
+- Ruim
 
 ```php
 $parser->getDescricaoAntiga();
@@ -337,7 +343,7 @@ $parser->getDescricaoAntiga();
 $parser->getDescricaoNova();
 ```
 
-##### Bom
+- Bom
 
 ```php
 $parser->getDescricao();
@@ -347,9 +353,9 @@ $parser->getDescricao();
 
 ### Classes
 
-Seguindo o que reza a cartilha do [S.O.L.I.D.](https://pt.wikipedia.org/wiki/SOLID), cabe a cada classe ser responsável por suas devidas capturas, sem uma classe que faz tudo de uma só vez:
+> Seguindo o que reza a cartilha do [S.O.L.I.D.](https://pt.wikipedia.org/wiki/SOLID), cabe a cada classe ser responsável por suas devidas capturas, sem uma classe que faz tudo de uma só vez:
 
-##### Ruim
+- Ruim
 
 ```php
 class LicitacaoPageObject extends AbstractPageObject
@@ -370,7 +376,7 @@ class LicitacaoPageObject extends AbstractPageObject
 }
 ```
 
-##### Bom
+- Bom
 
 ```php
 class LicitacaoPageObject extends AbstractPageObject
@@ -396,9 +402,9 @@ class LicitacaoDetalhesPageObject extends AbstractPageObject
 }
 ```
 
-- Dependa de abstrações para que seus page-objects funcionem e não crie alto acoplamento:
+> Dependa de abstrações para que seus page-objects funcionem e não crie alto acoplamento:
 
-##### Ruim
+- Ruim
 
 ```php
 class PageObject
@@ -411,7 +417,7 @@ class PageObject
 }
 ```
  
-##### Bom
+- Bom
 
 ```php
 class PageObject

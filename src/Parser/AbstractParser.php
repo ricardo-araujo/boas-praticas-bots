@@ -6,7 +6,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 abstract class AbstractParser
 {
-    private $crawler;
+    protected $crawler;
 
     public function __construct(string $bodyContents, string $charset = 'UTF-8')
     {
