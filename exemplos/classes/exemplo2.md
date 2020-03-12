@@ -26,4 +26,6 @@ class PageObject
 }
 ```
 
-[Anterior](./exemplo1.md)
+<p>
+    <a href="exemplo1.md"> Anterior </a>
+</p>

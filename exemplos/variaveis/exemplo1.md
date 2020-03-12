@@ -16,4 +16,6 @@ $dtPublicacaoLicitacao = $licitacao['dt_publicacao'];
 $dataPublicacao = $licitacao['dt_publicacao'];
 ```
 
-[Próximo](./exemplo2.md)
+<p align="center">
+    <a href="exemplo2.md"> Próximo </a>
+</p>

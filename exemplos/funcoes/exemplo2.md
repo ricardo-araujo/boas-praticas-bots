@@ -16,4 +16,6 @@ if ($parser->temLicitacoes()) {
 }
 ```
 
-[Anterior](./exemplo1.md) | [Próximo](./exemplo3.md)
+<p>
+    <a href="exemplo1.md"> Anterior </a> | <a href="exemplo3.md"> Próximo </a> 
+</p>

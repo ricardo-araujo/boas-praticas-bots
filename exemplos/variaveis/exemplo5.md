@@ -67,4 +67,6 @@ class PortalQualquerLicitacaoIterator extends AbstractIterator
 }
 ```
 
-[Anterior](./exemplo4.md) | [Próximo](./exemplo6.md)
+<p>
+    <a href="exemplo4.md"> Anterior </a> | <a href="exemplo6.md"> Próximo </a> 
+</p>

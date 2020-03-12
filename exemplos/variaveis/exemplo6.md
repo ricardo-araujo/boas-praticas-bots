@@ -30,4 +30,6 @@ $statusValidos = ['em_andamento', 'futuras', 'encerradas'];
 return in_array($status, $statusValidos, true);
 ```
 
-[Anterior](./exemplo5.md)
+<p>
+    <a href="exemplo5.md"> Anterior </a>
+</p>

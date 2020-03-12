@@ -24,4 +24,6 @@ if (!$parser->temProximaPagina()) {
 }
 ```
 
-[Anterior](./exemplo2.md) | [Próximo](./exemplo4.md)
+<p>
+    <a href="exemplo2.md"> Anterior </a> | <a href="exemplo4.md"> Próximo </a> 
+</p>

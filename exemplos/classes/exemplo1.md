@@ -47,4 +47,6 @@ class LicitacaoDetalhesPageObject extends AbstractPageObject
 }
 ```
 
-[Próximo](./exemplo2.md)
+<p align="center">
+    <a href="exemplo2.md"> Próximo </a>
+</p>
