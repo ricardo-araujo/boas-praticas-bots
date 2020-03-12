@@ -19,3 +19,5 @@ $pageObject->porStatus(Status::EM_ANDAMENTO)->get();
 
 if ($licitacao->modalidade() == Modalidade::PREGAO_ELETRONICO);
 ```
+
+[Anterior](./exemplo2.md) | [Próximo](./exemplo4.md)

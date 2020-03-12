@@ -23,3 +23,5 @@ if (!$parser->temProximaPagina()) {
     //...
 }
 ```
+
+[Anterior](./exemplo2.md) | [Próximo](./exemplo4.md)

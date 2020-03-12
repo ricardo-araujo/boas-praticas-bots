@@ -13,3 +13,5 @@ $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->getLicitacoesRealizada
 $licitacoes = $pageObject->porStatus(Status::FUTURAS)->get();
 $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->get();
 ```
+
+[Anterior](./exemplo1.md) | [Próximo](./exemplo3.md)
