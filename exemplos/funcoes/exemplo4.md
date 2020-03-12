@@ -14,6 +14,6 @@ $parser->getDescricaoNova();
 $parser->getDescricao();
 ```
 
-<p>
+<p align="center">
     <a href="exemplo3.md"> Anterior </a>
 </p>

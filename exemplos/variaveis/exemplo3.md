@@ -20,6 +20,6 @@ $pageObject->porStatus(Status::EM_ANDAMENTO)->get();
 if ($licitacao->modalidade() == Modalidade::PREGAO_ELETRONICO);
 ```
 
-<p>
+<p align="center">
     <a href="exemplo2.md"> Anterior </a> | <a href="exemplo4.md"> Próximo </a> 
 </p>

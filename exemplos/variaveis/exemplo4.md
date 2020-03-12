@@ -32,6 +32,6 @@ class ConsultaLicitacaoParser
 ...
 ```
 
-<p>
+<p align="center">
     <a href="exemplo3.md"> Anterior </a> | <a href="exemplo5.md"> Próximo </a> 
 </p>

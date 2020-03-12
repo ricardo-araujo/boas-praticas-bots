@@ -26,6 +26,6 @@ class PageObject
 }
 ```
 
-<p>
+<p align="center">
     <a href="exemplo1.md"> Anterior </a>
 </p>

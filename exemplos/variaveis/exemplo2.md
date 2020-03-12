@@ -14,6 +14,6 @@ $licitacoes = $pageObject->porStatus(Status::FUTURAS)->get();
 $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->get();
 ```
 
-<p>
+<p align="center">
     <a href="exemplo1.md"> Anterior </a> | <a href="exemplo3.md"> Próximo </a> 
 </p>
