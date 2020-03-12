@@ -10,10 +10,10 @@ Esse projeto tem como objetivo mostrar algumas melhorias observadas ao longo do 
     - [Local](#pre-requisitos-local)
     - [Dockerfile](#pre-requisitos-dockerfile)
 - [Introdução](#intro)
-- [Variáveis](#variaveis)
-- [Funções](#funcoes)
-- [Classes](#classes)
-- [Conceituais](#conceituais)
+- [Variáveis](./exemplos/variaveis)
+- [Funções](./exemplos/funcoes)
+- [Classes](./exemplos/classes)
+- [Conceituais](./exemplos/conceituais)
 
 <a name="intro"/>
 
