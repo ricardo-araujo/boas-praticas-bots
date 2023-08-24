@@ -1,6 +1,6 @@
 Evite o uso de flags como paramêtro de funções
 
-- Ruim
+- Aceitável
 
 ```php
 public function salvaArquivo($nome, $temp = false) 
