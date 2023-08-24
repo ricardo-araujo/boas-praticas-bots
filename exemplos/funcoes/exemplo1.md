@@ -1,4 +1,4 @@
-> Evite o uso de flags como paramêtro de funções
+Evite o uso de flags como paramêtro de funções
 
 - Ruim
 
@@ -28,5 +28,5 @@ public function salvaArquivoTemporario($nome)
 ``` 
 
 <p align="center">
-    <a href="exemplo2.md"> Próximo </a>
+    <a href="../conceituais/exemplo1.md"> << Tópico Anterior (Conceituais) </a> | <a href="exemplo2.md"> Próximo > </a>
 </p>

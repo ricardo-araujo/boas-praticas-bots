@@ -1,4 +1,4 @@
-> Caso o contexto de acesso às informações seja o mesmo, como por exemplo, um get em licitações futuras ou realizadas, use o mesmo vocabulário para esse mesmo tipo. Abaixo, os métodos são claros em relação a quais status de licitacoes serão retornadas, o que torna a explicação da chamada inutil.
+Caso o contexto de acesso às informações seja o mesmo, como por exemplo, um get em licitações futuras ou realizadas, use o mesmo vocabulário para esse mesmo tipo. Abaixo, os métodos são claros em relação a quais status de licitacoes serão retornadas, o que torna a explicação da chamada inutil.
 
 - Ruim
 
@@ -15,5 +15,5 @@ $licitacoes = $pageObject->porStatus(Status::REALIZADAS)->get();
 ```
 
 <p align="center">
-    <a href="exemplo1.md"> Anterior </a> | <a href="exemplo3.md"> Próximo </a> 
+    <a href="exemplo1.md"> < Anterior </a> | <a href="exemplo3.md"> Próximo > </a> 
 </p>

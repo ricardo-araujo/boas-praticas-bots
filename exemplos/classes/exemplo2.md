@@ -1,4 +1,4 @@
-> Dependa de abstrações para que seus page-objects funcionem e não crie alto acoplamento:
+Dependa de abstrações para que seus page-objects funcionem e não crie alto acoplamento:
 
 - Ruim
 
@@ -27,5 +27,5 @@ class PageObject
 ```
 
 <p align="center">
-    <a href="exemplo1.md"> Anterior </a>
+    <a href="exemplo1.md"> < Anterior </a> | <a href="../conceituais/exemplo1.md"> Próximo Tópico (Conceituais) >> </a> 
 </p>

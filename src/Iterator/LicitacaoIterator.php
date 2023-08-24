@@ -4,7 +4,7 @@ namespace BoasPraticas\Bots\Iterator;
 
 class LicitacaoIterator extends AbstractArrayIterator
 {
-    public function current()
+    public function current() : array
     {
         $licitacao = $this->iterator->current();
 
@@ -16,7 +16,7 @@ class LicitacaoIterator extends AbstractArrayIterator
             'nome_fantasia'    => $licitacao['sNmApelido'],
             'situacao'         => $licitacao['sDsSituacao'],
             'modalidade'       => $licitacao['sNmModalidade'],
-            'dt_publiacao'     => 'data_deve_ser_parseada'
+            'dt_publicacao'    => 'data_a_ser_parseada...'
         ];
     }
 }

@@ -1,4 +1,4 @@
-> Não force o leitor a traduzir o que está sendo feito:
+Não force o leitor a traduzir o que está sendo feito:
 
 - Ruim
 
@@ -68,5 +68,5 @@ class PortalQualquerLicitacaoIterator extends AbstractIterator
 ```
 
 <p align="center">
-    <a href="exemplo4.md"> Anterior </a> | <a href="exemplo6.md"> Próximo </a> 
+    <a href="exemplo4.md"> < Anterior </a> | <a href="exemplo6.md"> Próximo > </a> 
 </p>

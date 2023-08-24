@@ -1,4 +1,4 @@
-FROM php:7.2-cli
+FROM php:7.0-cli-alpine
 
 MAINTAINER Ricardo Araujo
 
@@ -12,8 +12,5 @@ RUN apt-get update && apt-get install -y \
     iputils-ping \
     vim \
     git \
-    unzip \
     libpq-dev \
     libzip-dev
-
-RUN docker-php-ext-install zip

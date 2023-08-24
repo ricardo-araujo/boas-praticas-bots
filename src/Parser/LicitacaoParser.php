@@ -11,7 +11,7 @@ class LicitacaoParser extends AbstractParser
         return ! empty($this->toArray());
     }
 
-    public function licitacoes()
+    public function licitacoes() : LicitacaoIterator
     {
         return new LicitacaoIterator($this->toArray());
     }

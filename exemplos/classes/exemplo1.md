@@ -1,4 +1,4 @@
-> Seguindo o que reza a cartilha do [S.O.L.I.D.](https://pt.wikipedia.org/wiki/SOLID), cabe a cada classe ser responsável por suas devidas capturas, sem uma classe que faz tudo de uma só vez:
+Seguindo o que reza a cartilha do [S.O.L.I.D.](https://pt.wikipedia.org/wiki/SOLID), cabe a cada classe ser responsável por suas devidas capturas, sem uma classe que faz tudo de uma só vez:
 
 - Ruim
 
@@ -48,5 +48,5 @@ class LicitacaoDetalhesPageObject extends AbstractPageObject
 ```
 
 <p align="center">
-    <a href="exemplo2.md"> Próximo </a>
+    <a href="exemplo2.md"> Próximo > </a>
 </p>

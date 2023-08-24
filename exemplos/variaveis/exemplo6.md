@@ -1,4 +1,4 @@
-> Evite aninhamentos grandes e pratique o "early return"
+Evite aninhamentos grandes e pratique o "early return"
 
 - Ruim
 
@@ -31,5 +31,5 @@ return in_array($status, $statusValidos, true);
 ```
 
 <p align="center">
-    <a href="exemplo5.md"> Anterior </a>
+    <a href="exemplo5.md"> < Anterior </a>
 </p>

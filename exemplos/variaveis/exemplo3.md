@@ -1,4 +1,4 @@
-> Abstraia valores "mágicos" para um contexto explicativo:
+Abstraia valores "mágicos" para um contexto explicativo:
 
 - Ruim
 
@@ -21,5 +21,5 @@ if ($licitacao->modalidade() == Modalidade::PREGAO_ELETRONICO);
 ```
 
 <p align="center">
-    <a href="exemplo2.md"> Anterior </a> | <a href="exemplo4.md"> Próximo </a> 
+    <a href="exemplo2.md"> < Anterior </a> | <a href="exemplo4.md"> Próximo > </a> 
 </p>

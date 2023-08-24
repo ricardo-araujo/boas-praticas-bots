@@ -37,7 +37,9 @@ Caso tenha o Docker instalado em sua máquina, execute o comando abaixo na raiz 
 
 ```bash
 docker build -t boas-praticas-bots . 
+
 # e após
+
 docker run -it --rm --name boas-praticas-bots -v "$PWD":/www/boas-praticas-bots -w /www/boas-praticas-bots boas-praticas-bots bash
 ``` 
 
@@ -60,3 +62,7 @@ Para tanto, foi definido um padrão de projetos chamado [Page Object](https://ma
 As classes usadas para extração de informações que aparecem de forma "única" (Ex.: quantidade de licitações ou nome de um órgão) na página, chamamos de Parsers
 
 Quando dentro das páginas encontramos uma lista estruturada de informações (Ex.: uma tabela de licitações do dia), usamos classes chamadas de Iterators. 
+
+<p>
+  <a href="exemplos/classes/exemplo1.md"> Exemplos (Classes) >> </a>
+</p>

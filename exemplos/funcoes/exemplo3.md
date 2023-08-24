@@ -1,4 +1,4 @@
-> Evite condicionais negativas:
+Evite condicionais negativas:
 
 - Ruim
 
@@ -25,5 +25,5 @@ if (!$parser->temProximaPagina()) {
 ```
 
 <p align="center">
-    <a href="exemplo2.md"> Anterior </a> | <a href="exemplo4.md"> Próximo </a> 
+    <a href="exemplo2.md"> < Anterior </a> | <a href="exemplo4.md"> Próximo > </a> 
 </p>
