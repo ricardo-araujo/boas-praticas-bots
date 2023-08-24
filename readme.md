@@ -64,5 +64,5 @@ As classes usadas para extração de informações que aparecem de forma "única
 Quando dentro das páginas encontramos uma lista estruturada de informações (Ex.: uma tabela de licitações do dia), usamos classes chamadas de Iterators. 
 
 <p>
-  <a href="exemplos/variaveis/exemplo1.md"> Exemplos (Classes) >> </a>
+  <a href="exemplos/variaveis/exemplo1.md"> Exemplos (Variáveis) >> </a>
 </p>
