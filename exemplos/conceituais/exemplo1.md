@@ -1,13 +1,14 @@
 - Cada classe deve ter sua devida função;
 
+ 
 - Caso adote um padrão no estilo do código, mantenha-o em todo o desenvolvimento;
+
 
 - Desenvolva seus crawlers pensando que um terceiro irá corrigí-lo/evoluí-lo;
 
-- Siga a regra do escoteiro: caso encontre algum projeto que possa ser melhorado, então assim o faça.
-
-- Por fim, faça testes!
+ 
+- Faça testes.
 
 <p align="center">
-    <a href="../classes/exemplo2.md"> << Tópico Anterior (Classes) </a> | <a href="../funcoes/exemplo1.md"> Próximo Tópico (Funções) >> </a> 
+    <a href="../classes/exemplo2.md"> << Tópico Anterior (Classes) </a>
 </p>

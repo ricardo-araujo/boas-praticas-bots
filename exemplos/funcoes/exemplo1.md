@@ -28,5 +28,5 @@ public function salvaArquivoTemporario($nome)
 ``` 
 
 <p align="center">
-    <a href="../conceituais/exemplo1.md"> << Tópico Anterior (Conceituais) </a> | <a href="exemplo2.md"> Próximo > </a>
+    <a href="../variaveis/exemplo6.md"> << Tópico Anterior (Variáveis) </a> | <a href="exemplo2.md"> Próximo > </a>
 </p>

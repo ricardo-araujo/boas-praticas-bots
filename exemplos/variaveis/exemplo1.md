@@ -17,5 +17,5 @@ $dataPublicacao = $licitacao['dt_publicacao'];
 ```
 
 <p align="center">
-    <a href="../funcoes/exemplo4.md"> << Tópico Anterior (Funções) </a> | <a href="exemplo2.md"> Próximo > </a>
+    <a href="exemplo2.md"> Próximo > </a>
 </p>

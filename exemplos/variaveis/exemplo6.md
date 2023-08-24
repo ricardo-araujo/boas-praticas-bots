@@ -31,5 +31,5 @@ return in_array($status, $statusValidos, true);
 ```
 
 <p align="center">
-    <a href="exemplo5.md"> < Anterior </a>
+    <a href="exemplo5.md"> < Anterior </a> | <a href="../funcoes/exemplo1.md"> < Próximo Tópico (Funções) >> </a>
 </p>

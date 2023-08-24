@@ -21,6 +21,8 @@ foreack ($licitacoes as $licitacao) {
 }
 ```
 
+ou
+
 - Ruim
 
 ```php

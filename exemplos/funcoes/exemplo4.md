@@ -15,5 +15,5 @@ $parser->getDescricao();
 ```
 
 <p align="center">
-    <a href="exemplo3.md"> < Anterior </a> | <a href="../variaveis/exemplo1.md"> Próximo Tópico (Variáveis) >> </a>
+    <a href="exemplo3.md"> < Anterior </a> | <a href="../classes/exemplo1.md"> Próximo Tópico (Classes) >> </a>
 </p>

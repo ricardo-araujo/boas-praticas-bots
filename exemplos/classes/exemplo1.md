@@ -48,5 +48,5 @@ class LicitacaoDetalhesPageObject extends AbstractPageObject
 ```
 
 <p align="center">
-    <a href="exemplo2.md"> Próximo > </a>
+    <a href="../funcoes/exemplo3.md"> << Tópico Anterior (Funções) </a> | <a href="exemplo2.md"> Próximo > </a>
 </p>

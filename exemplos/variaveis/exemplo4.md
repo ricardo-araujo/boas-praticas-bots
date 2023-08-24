@@ -1,6 +1,6 @@
 Caso a captura de informações sejam feitas através de regexes, o que é comum em alguns portais, padrões explicativos podem ser utilizados:
 
-- Ruim
+- Aceitável
 
 ```php
 class ConsultaLicitacaoParser
