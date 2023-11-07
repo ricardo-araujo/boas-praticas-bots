@@ -14,7 +14,7 @@ class Uma_Classe_de_bot_errada extends AbstractPageObject
 
 
 
-      return new UmaClasseDeParser($response->getBody()->getContents());
+      return $response->getBody()->getContents();
 
     }
 }

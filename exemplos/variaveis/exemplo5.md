@@ -16,7 +16,7 @@ for ($i = 0; $i < count($l); $i++) {
 ```php
 $licitacoes = $parser->licitacoes();
 
-foreack ($licitacoes as $licitacao) {
+foreach ($licitacoes as $licitacao) {
     salvaNoBancoDeDados($licitacao);
 }
 ```
